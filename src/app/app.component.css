@@ -5,7 +5,7 @@
 nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 a {

@@ -1,9 +1,48 @@
-<div>
-    <label style="font-size: large; font-weight: 800;">Task :   </label>
-    <input type="text"/>
+<div class="container">
+    <form [formGroup]="taskForm" id="form" name="MyForm">
+        <label for="task" required>Task : </label>
+        <input type="text" name="text" placeholder="Enter your task" id="task" formControlName="task" />
+        <span class="error" ng-show="MyForm.Task.$dirty && MyForm.Task.$error.required"></span>
+        <br>
+        <label for="date" style="font-size: large; font-weight: 800;" required>Date : </label>
+        <input type="date" name="date" id="date" formControlName="date" />
+        <span class="error" ng-show="MyForm.Date.$dirty && MyForm.Date.$error.required"></span>
+        <br>
+        <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()" style="cursor:pointer"
+            class="btn btn-md btn-primary text-upper btn-sub" [disabled]="!taskForm.valid">Submit</button>
 
-    <br>
+        <div class="search-hero">
+            <label>Search: </label>
+            <input class="form-control" type="text" name="search" [(ngModel)]="term" autocomplete="off"
+                placeholder="Search by employ task">
+        </div>
+    </form>
 
-    <label style="font-size: large; font-weight: 800;">Date :   </label>
-    <input type="date"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Check Box</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let employ of employ | filter:term; index as index">
+                <td>
+                    <input type="checkbox" class="form-check-input">
+                </td>
+                <td>{{employ.task}}</td>
+                <td>{{employ.date}}</td>
+                <td>
+                    <button style="cursor:pointer" class="btn btn-md btn-primari"
+                        (click)="editRow(employ, index)">Edit</button>
+
+                    <button (click)="deleteRow(index)" style="cursor:pointer"
+                        class="btn btn-md btn-denger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
