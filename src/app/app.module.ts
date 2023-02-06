@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { SearchFilterPipe } from './search-filter.pipe';
+import { SearchFilterPipe } from './search-filter.pipe';
 import { DateRangePipe } from './date-range.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -12,7 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [
     AppComponent,
     TaskComponent,
-    // SearchFilterPipe,
+    SearchFilterPipe,
     DateRangePipe
   ],
   imports: [

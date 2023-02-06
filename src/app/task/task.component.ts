@@ -7,11 +7,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-  term!: string;
-  constructor(){}
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
+  public isChecked = true;
+  searchText : string = '';
   employ: any = []
 
   taskForm = new FormGroup({

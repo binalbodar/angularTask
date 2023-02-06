@@ -1,6 +1,6 @@
 <div class="container">
     <form [formGroup]="taskForm" id="form" name="MyForm">
-        <label for="task" required>Task : </label>
+        <label for="task" style="font-size: large; font-weight: 800;" required>Task : </label>
         <input type="text" name="text" placeholder="Enter your task" id="task" formControlName="task" />
         <span class="error" ng-show="MyForm.Task.$dirty && MyForm.Task.$error.required"></span>
         <br>
@@ -11,10 +11,9 @@
         <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()" style="cursor:pointer"
             class="btn btn-md btn-primary text-upper btn-sub" [disabled]="!taskForm.valid">Submit</button>
 
-        <div class="search-hero">
-            <label>Search: </label>
-            <input class="form-control" type="text" name="search" [(ngModel)]="term" autocomplete="off"
-                placeholder="Search by employ task">
+        <div class="search">
+            <!-- <label style="font-size: large; font-weight: 800;">Search : </label> -->
+            <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="SEARCH">
         </div>
     </form>
 
@@ -29,9 +28,17 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let employ of employ | filter:term; index as index">
+            <!-- <tr>
+                <th>Check Box</th>
+                <td>Task & Date</td>
+                <td>Action</td>
+            </tr> -->
+            <tr *ngFor="let employ of employ | filter:searchText; index as index">
                 <td>
-                    <input type="checkbox" class="form-check-input">
+                    <div class="checkbox">
+                        <input type="checkbox" name="packersOff" id="packers" value="1" />
+                        <!-- <label for="packers" class="strikethrough">{{employ.task}} & {{employ.date}} </label> -->
+                    </div>
                 </td>
                 <td>{{employ.task}}</td>
                 <td>{{employ.date}}</td>
