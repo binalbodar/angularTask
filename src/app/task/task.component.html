@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <div class="container">
     <form [formGroup]="taskForm" id="form" name="MyForm">
         <label for="task" style="font-size: large; font-weight: 800;" required>Task : </label>
@@ -8,8 +12,8 @@
         <input type="date" name="date" id="date" formControlName="date" />
         <span class="error" ng-show="MyForm.Date.$dirty && MyForm.Date.$error.required"></span>
         <br>
-        <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()" style="cursor:pointer"
-            class="btn btn-md btn-primary text-upper btn-sub" [disabled]="!taskForm.valid">Submit</button>
+        <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()" style="cursor:pointer; font-size: x-large;"
+            class="btn btn-primari btn-sub" [disabled]="!taskForm.valid"><i class='fa fa-save'></i></button>
 
         <div class="search">
             <!-- <label style="font-size: large; font-weight: 800;">Search : </label> -->
@@ -33,21 +37,21 @@
                 <td>Task & Date</td>
                 <td>Action</td>
             </tr> -->
-            <tr *ngFor="let employ of employ | filter:searchText; index as index">
+            <tr *ngFor="let employ of employ | searchFilter:searchText;index as index">
                 <td>
                     <div class="checkbox">
                         <input type="checkbox" name="packersOff" id="packers" value="1" />
-                        <!-- <label for="packers" class="strikethrough">{{employ.task}} & {{employ.date}} </label> -->
+                        <!-- <label for="packers" class="strikethrough">{{employ.task}} & {{employ.date | date: 'dd/MM/yyyy'}} </label> -->
                     </div>
                 </td>
                 <td>{{employ.task}}</td>
-                <td>{{employ.date}}</td>
+                <td>{{employ.date | date: 'dd/MM/yyyy'}}</td>
                 <td>
-                    <button style="cursor:pointer" class="btn btn-md btn-primari"
-                        (click)="editRow(employ, index)">Edit</button>
+                    <button style="cursor:pointer" class="btn btn-md btn-primari" (click)="editRow(employ, index)"><i
+                            class='fa fa-edit' style="font-size: larger;"></i></button>
 
-                    <button (click)="deleteRow(index)" style="cursor:pointer"
-                        class="btn btn-md btn-denger">Delete</button>
+                    <button (click)="deleteRow(index)" style="cursor:pointer" class="btn btn-md btn-denger"><i
+                            class='fa fa-trash' style="font-size: larger;"></i></button>
                 </td>
             </tr>
         </tbody>

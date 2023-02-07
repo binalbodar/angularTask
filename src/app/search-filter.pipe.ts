@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchFilterPipe implements PipeTransform {
 
   transform(value: any, searchText: string): any [] {
-    if(!value){return [];}
-    if(!searchText){return value;}
+    if(!value) return [];
+    if(!searchText) return value;
 
     searchText = searchText.toLowerCase();
 
