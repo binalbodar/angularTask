@@ -7,10 +7,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   public isChecked = true;
-  searchText : string = '';
-  employ: any = []
 
   taskForm = new FormGroup({
     task: new FormControl('', [Validators.required]),
@@ -47,6 +45,9 @@ export class TaskComponent implements OnInit {
     })
   }
 
+  employ: any = []
+
+  searchText = '';
 }
 
 class Employ {

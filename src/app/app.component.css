@@ -1,14 +1,95 @@
-.red {
+/* .red {
     color: red;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 }
 
 a {
     text-decoration: none;
     font-size: large;
+} */
+
+
+.container {
+    /* padding-top: 50px; */
+    padding-bottom: 10px;
+    color: #405065;
+}
+
+label,
+input {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+table {
+    border: 2px solid;
+    /* margin-left: 40px; */
+}
+
+tr,
+th,
+td {
+    border: 2px solid;
+    padding: 3px 10px;
+    font-size: large;
+    text-align: center;
+}
+
+input {
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+.btn-sub {
+    margin-top: 20px;
+    border: 2px solid black;
+    /* margin-left: 40px; */
+}
+
+button {
+    margin-right: 10px;
+}
+
+.btn-denger {
+    color: red;
+}
+
+.btn-denger:hover {
+    color: red;
+}
+
+.btn-primari {
+    color: blue;
+}
+
+.btn-primari:hover {
+    color: blue;
+}
+
+.form-check-input {
+    font-size: large;
+    /* margin-bottom: 20px; */
+}
+
+.search {
+    margin-left: 950px;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 2px solid black;
+    width: 260px;
+}
+
+input[type=checkbox]:checked+label {
+    text-decoration: line-through;
 }
