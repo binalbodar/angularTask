@@ -15,9 +15,25 @@ a {
 
 
 .container {
-    /* padding-top: 50px; */
+    padding-top: 50px;
     padding-bottom: 10px;
     color: #405065;
+}
+
+.btn-denger {
+    color: red;
+}
+
+.btn-denger:hover {
+    color: red;
+}
+
+.btn-primari {
+    color: rgb(58, 67, 244);
+}
+
+.btn-primari:hover {
+    color: blue;
 }
 
 label,
@@ -26,9 +42,13 @@ input {
     margin-left: 10px;
 }
 
+label {
+    margin-top: 25px;
+}
+
 table {
     border: 2px solid;
-    /* margin-left: 40px; */
+    margin-left: 40px;
 }
 
 tr,
@@ -41,48 +61,30 @@ td {
 }
 
 input {
-    border: 2px solid;
+    border: 1px solid;
     border-radius: 5px;
 }
 
 form {
     margin-bottom: 30px;
+    display: flex;
 }
 
 .btn-sub {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 2px solid black;
-    /* margin-left: 40px; */
-}
-
-button {
-    margin-right: 10px;
-}
-
-.btn-denger {
-    color: red;
-}
-
-.btn-denger:hover {
-    color: red;
-}
-
-.btn-primari {
-    color: blue;
-}
-
-.btn-primari:hover {
-    color: blue;
-}
-
-.form-check-input {
-    font-size: large;
-    /* margin-bottom: 20px; */
+    margin-left: 15px;
 }
 
 .search {
     margin-left: 950px;
     margin-bottom: 20px;
+}
+
+.filter{
+    margin-top: -70px;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 .form-control {
@@ -92,4 +94,8 @@ button {
 
 input[type=checkbox]:checked+label {
     text-decoration: line-through;
+}
+
+.emtask {
+    padding-top: 10px;
 }

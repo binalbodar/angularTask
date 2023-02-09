@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CustomDatePipe } from './custom-date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     // TaskComponent,
     SearchFilterPipe,
+    CustomDatePipe,
   ],
   imports: [
     BrowserModule,

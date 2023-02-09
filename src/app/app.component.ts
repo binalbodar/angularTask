@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
   employ: any = []
 
   searchText = '';
+  filterDate = '';
 }
 
 class Employ {
