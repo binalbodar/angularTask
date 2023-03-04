@@ -1,62 +1,53 @@
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <div class="container p-5">
-    <form [formGroup]="taskForm">
-        <label for="task" style="font-size: large; font-weight: 800;" required>Task : </label>
-        <input type="text" name="text" placeholder="Enter your task" id="task" formControlName="task"
-            class="form-control" />
+  <form [formGroup]="taskForm" style="margin-left: 35px;">
+    <label for="task" style="font-size: large; font-weight: 800;" required>Task :- </label>
+    <input type="text" name="text" placeholder="Enter your task" id="task" formControlName="task"
+      class="form-control" />
 
-        <label for="date" style="font-size: large; font-weight: 800;" required>Date : </label>
-        <input type="date" name="date" id="date" formControlName="date" class="form-control" />
+    <label for="date" style="font-size: large; font-weight: 800;" required>Date :- </label>
+    <input type="date" name="date" id="date" formControlName="date" class="form-control" />
 
-        <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()"
-            style="cursor:pointer; font-size: large;" class="btn btn-sub" [disabled]="!taskForm.valid"><i
-                class='fa fa-save'></i></button>
-    </form>
+    <button name="button" id="submit" type="button" value="Submit" (click)="onSubmit()"
+      style="cursor:pointer; font-size: large;" class="btn btn-sub btn-primari" [disabled]="!taskForm.valid"
+      *ngIf="toDisplay"><i class='fa fa-save'></i></button>
 
-    <div class="search">
-        <span style="font-size: large; font-weight: 800;">Search :</span><input type="text"
-            placeholder="Search Task" [(ngModel)]="searchText" style="border: 2px solid black;">
-    </div>
+    <button name="button" id="update" type="button" value="Update" *ngIf="!toDisplay" (click)="onupdate()"
+      style="cursor:pointer; font-size: large;" class="btn btn-sub btn-primari"><i class="fa fa-pencil"
+        aria-hidden="true"></i></button>
+  </form>
 
-    <div class="filter">
-        <span style="font-size: large; font-weight: 800;">DateFilter :</span><input type="date"
-            placeholder="Filter Date" style="border: 2px solid black;">
-    </div>
+  <div class="search">
+    <span style="font-size: large; font-weight: 800;">Search :</span><input type="text"
+      placeholder="Search Task And Date" [(ngModel)]="searchText" style="border: 2px solid black;">
+  </div>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>CheacBox</th>
-                <th>Task</th>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-3">CheacBox</th>
+        <th class="col-3">Task</th>
+        <th class="col-3">Date</th>
+        <th class="col-3">Action</th>
+      </tr>
+    </thead>
 
-        <tbody>
-            <!-- <tr>
-              <th>Check Box</th>
-              <td>Task & Date</td>
-              <td>Action</td>
-          </tr> -->
-            <tr *ngFor="let employ of employ | searchFilter: searchText; index as index">
-                <td>
-                    <input type="checkbox" name="packersOff" id="packers" value="1" style="cursor:pointer" />
-                    <!-- <label for="packers" class="strikethrough">{{employ.task}} & {{employ.date | date: 'dd/MM/yyyy'}} </label> -->
-                </td>
-                <td class="emtask">{{employ.task}}</td>
-                <td class="emtask">{{employ.date | customDate}}</td>
-                <td class="emtask">
-                    <button style="cursor:pointer" class="btn btn-md btn-primari" (click)="editRow(employ, index)"><i
-                            class='fa fa-edit' style="font-size: larger;"></i></button>
+    <tbody>
+      <tr *ngFor="let employ of employ | searchFilter: searchText; index as index">
+        <input type="checkbox" id="packers" style="cursor:pointer" />
+        <td class="emtask" for="packers">{{employ.task}}</td>
+        <td class="emtask">{{employ.date | date: 'dd/MM/YYYY'}}</td>
+        <td class="emtask">
+          <button style="cursor:pointer" class="btn btn-md btn-primari" (click)="editRow(employ, index)"><i
+              class='fa fa-edit' style="font-size: larger;"></i></button>
 
-                    <button (click)="deleteRow(index)" style="cursor:pointer" class="btn btn-md btn-denger"><i
-                            class='fa fa-trash' style="font-size: larger;"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+          <button (click)="deleteRow(index)" style="cursor:pointer" class="btn btn-md btn-denger"><i class='fa fa-trash'
+              style="font-size: larger;"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
